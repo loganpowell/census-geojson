@@ -8,7 +8,6 @@
     [census.utils.core :as ut :refer [$geoKeyMap$]]
     [census.test.core :as ts]))
 
-
 ;; NOTE: If you need to increase memory of Node in Shadow... Eval in REPL:
 (comment
   (shadow.cljs.devtools.api/node-repl {:node-args ["--max-old-space-size=8192"]}))
@@ -107,7 +106,6 @@
                  geoK  (<|/<! =geo=)
                  url   (geo-url-composer geoK args)]
              (prn url)
-             ;(prn geoK)
              (<|/>! =url= url)
              ; IO-ajax-GET closes the =res= chan; pipeline-async closes the =url= when =res= is closed
              (<|/pipeline-async 1 =O= (ut/I=O<<=IO= ut/IO-ajax-GET-json) =url=)
@@ -115,23 +113,6 @@
              (<|/close! =url=)))))
                ; =O= chan is closed by the consumer; pipeline closes the =res= when =O= is closed
 
-
-
-;; Examples ==============================
-
-
-
-#_(prn ts/test-args-5)
-
-#_(let [=I= (<|/chan 1)
-        =O= (<|/chan 1 (map ut/throw-err))]
-    (<|/go (<|/>! =I= ts/test-args-6)
-           (IO-pp->census-GeoJSON =I= =O=)
-           (prn (<|/<! =O=))
-           (<|/close! =I=)
-           (<|/close! =O=)))
-
-;; =======================================
 
 
 (defn getCensusGeoJSON
@@ -147,21 +128,3 @@
                  :response (js/JSON.stringify (clj->js %))}))
      ((wms/Icb<-wms-args<<=IO= IO-pp->census-GeoJSON) args
        #(cb (js/JSON.stringify (clj->js %)))))))
-
-
-;; Examples  ========================================
-
-#_(getCensusGeoJSON
-    ;ts/census.test-js-args-1
-    ts/test-js-args-2
-    ;ts/census.test-args-2
-    #_#(geo+config->mkdirp->fsW!
-         {:directory "./src/json/"
-          :filepath "./src/json/legislative-only.json"
-          :json %})
-    ;#(prn %))
-    #(js/console.log %))
-  ;true)
-;; ===================================================
-
-; TODO Fix Icb+args<<=IO= function. The census.test-args are working but not census.test-js-args

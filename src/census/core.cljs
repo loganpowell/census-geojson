@@ -29,19 +29,6 @@
   ([{:vintage _ :geoHierarchy _                                                                   }] :geocodes)
   ([& anything-else] nil))
 
-(deploy-census-function
-  ;ts/args-ok-wms-only
-  ;ts/args-ok-geo-only
-  ;ts/args-ok-s+g-v+ps
-  ;ts/args-ok-s+g-vals
-  ;ts/args-ok-sts-pred
-  ;ts/args-ok-sts-v+ps
-  ;ts/args-ok-sts-vals
-  ts/args-na-geo-only)
-
-
-#_(prn ts/args-ok-wms-only)
-
 (defn IO-census
   [=I= =O=]
   (<|/go (let [args   (<|/<! =I=)
@@ -88,48 +75,5 @@
   (census ts/args-ok-s+g-vals "./json/s_1.json")
   (census ts/args-na-sts-pred "./json/sts-pred.json")
   (census ts/args-ok-sts-v+ps js/console.log)
-  (census ts/args-ok-sts-vals js/console.log)
-  (census {:vintage 2016
-           :sourcePath ["acs" "acs5"]
-           :values ["B25001_001E"]
-           :geoHierarchy {:state "42"
-                          :county "003"
-                          :county-subdivision "*"}
-           :geoResolution "500k"
-           :statsKey stats-key}
-          "./json/Census_County-and-Subdivisions_.json")
-  (census {:vintage 2016
-           :sourcePath ["acs" "acs5"]
-           :values ["B25001_001E"]
-           :geoHierarchy {:state "42"
-                          :county "003"
-                          :tract "*"}
-           :geoResolution "500k"
-           :statsKey stats-key}
-          "./json/Census_County-and-Tracts_.json")
-  (census {:vintage 2016
-           :sourcePath ["acs" "acs5"]
-           :values ["B25001_001E"]
-           :geoHierarchy {:state "42"
-                          :county "003"
-                          :block-group "*"}
-           :geoResolution "500k"
-           :statsKey stats-key}
-          "./json/Census_County-and-Block-Groups_.json")
-  (census {:vintage 2016
-           :sourcePath ["acs" "acs5"]
-           :values ["B01001_001E"]
-           :geoHierarchy {:state "50"
-                          :school-district-_elementary_ "*"}
-           :geoResolution "500k"
-           :statsKey stats-key}
-          "./json/Census_State-and-School-Districts_.json")
-  (census {:vintage 2016
-           :sourcePath ["acs" "acs5"]
-           :values ["B25001_001E"]
-           :geoHierarchy {:zip-code-tabulation-area "*"}
-           :geoResolution "500k"
-           :statsKey stats-key}
-          "./json/Census_ZCTAs_.json"))
-
+  (census ts/args-ok-sts-vals js/console.log))
 

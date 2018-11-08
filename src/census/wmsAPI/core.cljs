@@ -152,23 +152,6 @@
 
 (test configed-map)
 
-(comment
-  (configed-map
-    *g*
-    (get-in
-     {:displayFieldName "BASENAME",
-      :fieldAliases     {:STATE "STATE", :COUNTY "COUNTY"},
-      :fields           [{:name   "STATE",
-                          :type   "esriFieldTypeString",
-                          :alias  "STATE",
-                          :length 2}
-                         {:name   "COUNTY",
-                          :type   "esriFieldTypeString",
-                          :alias  "COUNTY",
-                          :length 3}],
-      :features         [{:attributes {:STATE "51", :COUNTY "013"}}]}
-     [:features 0 :attributes])))
-
 
 (defn try-census-wms
   "
@@ -208,11 +191,6 @@
 
 (test wms-engage?)
 
-#_(let [=url= (<|/chan 1)
-        =geo= (<|/chan 1)]
-    (<|/go (<|/>! =url= ut/base-url-geoKeyMap)
-           ((ut/IO-cache-GET-edn $geoKeyMap$) =url= =geo=)
-           (prn (<|/<! =geo=))))
 
 (defn IO-census-wms
   "
