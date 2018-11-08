@@ -5,13 +5,10 @@
     [cuerdas.core :as s]
     [datascript.core :as d]
     [datascript.db :as db]
-    [census.utils.core :as ut :refer [stats-key]]
+    [census.utils.core :as ut]
     [census.test.core :as ts]
     [census.geoAPI.core :refer [geo-pattern-maker]]))
 
-(def geoKeyMap     (ut/read-edn "./src/census/geojson/index.edn"))
-(def examples      (ut/read-edn "./src/census/discovery/example-urls.edn"))
-(def examples-abv  (ut/read-edn "./src/census/discovery/example-urls-abv.edn"))
 
 (def test-index-str
   "https://api.census.gov/data/2013/pep/subcty?get=NAME,STNAME,CTYNAME,POP&for=place:08000&in=state:09&in=county:001&in=county subdivision:08070&DATE=6")

@@ -3,9 +3,9 @@
     [cljs.core.async :as <|]
     [cljs.test :refer-macros [deftest is testing run-tests async]]
     [com.rpl.specter :as sp]
-    [census.utils.core :as ut :refer [stats-key]]))
+    [census.utils.core :as ut]))
 
-(def *g* (ut/read-edn "./src/census/geojson/index.edn"))
+(def *g* "") ;(ut/read-edn "./src/census/geojson/index.edn"))
 
 (defn test-async
   "Asynchronous test awaiting ch to produce a value or close."
@@ -19,60 +19,61 @@
                   :geoHierarchy  {:state {:lat 28.2639 :lng -80.7214} :state-legislative-district-_upper-chamber_ "*"}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
 (def test-args-2 {:vintage       2016
                   :geoHierarchy {:place {:lat 28.2639 :lng -80.7214}}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
 (def test-args-3 {:vintage       "2016"
                   :geoHierarchy {:county {:lat 28.2639 :lng -80.7214} :tract "*"}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
+(js/console.log (clj->js test-args-3))
 (def test-args-4 {:vintage       2010
                   :geoHierarchy  {:state "01" :county "001" :someting-non-existant "*"}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
 (def test-args-5 {:vintage       2016
                   :geoHierarchy  {:state "*" :tract "*"}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
 
 (def test-args-6 {:vintage       "2016"
                   :geoHierarchy  {:state "01" :county "001" :tract "*"}
                   :sourcePath    ["acs" "acs5"]
                   :geoResolution "500k"
-                  :values        ["B01001_001E"]
-                  :statsKey      stats-key})
+                  :values        ["B01001_001E"]})
+                  ;:statsKey      stats-key})
 
 (def test-js-args-1 #js {"vintage"     "2016"
                          "geoHierarchy"  #js {"state" "12" "state legislative district (upper chamber)" "*"}
                          "sourcePath"    #js ["acs" "acs5"]
                          "values"        #js ["B01001_001E" "NAME"]
                          "predicates"    #js {"B00001_001E" "0:30000"}
-                         "geoResolution" "500k"
-                         "statsKey"      stats-key})
+                         "geoResolution" "500k"})
+                         ;"statsKey"      stats-key})
 
 (def test-js-args-2 #js {"vintage"      2016
                          "geoHierarchy" #js {"state" #js {"lat" 28.2639 "lng" -80.7214} "state legislative district (upper chamber)" "*"}
                          "sourcePath"   #js ["acs" "acs5"]
                          "values"       #js ["B01001_001E" "NAME"]
                          "predicates"   #js {"B00001_001E" "0:30000"}
-                         "geoResolution" "500k"
-                         "statsKey"     stats-key})
+                         "geoResolution" "500k"})
+                         ;"statsKey"     stats-key})
 
 
 (def test-arg-map
@@ -83,8 +84,8 @@
    :srcP {:2000 ["nonemp"]        :2010 ["dec" "sf1"]      :2015 ["cbp"]   :2016 ["acs" "acs5"] :2017 ["acs" "acs1"]}
    :pred {:2000 {:NAICS1997 "72"} :2010 {:H016001 "0:500"} :2015 nil       :2016 {:B00001_001E "0:1000000"} :2017 {:B00001_001E "0:1000000"}}
    :vals {:2000 ["NAME" "NESTAB"] :2010 ["P001001"]        :2015 ["ESTAB"] :2016 ["B01001_001E"]}
-   :geoR ["20m" "5m" "500k"]
-   :sKey stats-key})
+   :geoR ["20m" "5m" "500k"]})
+  ; :sKey stats-key})
 
 (defn get-path
   [& path]
@@ -104,7 +105,7 @@
         geoH {:geoHierarchy  (conj {} ge1s ge2s)}
         ress {:geoResolution (get-path :geoR res)}]
     (into {} (map (fn [val] (if (= [nil] (sp/select sp/MAP-VALS val)) nil val))
-                  [vins geoH srcs ress prds vals (if (= 1 s-key) {:statsKey stats-key} {:statsKey nil})]))))
+                  [vins geoH srcs ress prds vals (if (= 1 s-key) {:statsKey ""} {:statsKey nil})]))))
 
 
 (def args-ok-wms-only (test-args 9 2 4 0))

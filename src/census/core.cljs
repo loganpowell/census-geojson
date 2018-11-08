@@ -3,7 +3,7 @@
     [cljs.core.async :as <|]
     [defun.core :refer-macros [defun]]
     [cuerdas.core :as s]
-    [census.utils.core :as ut :refer [stats-key]]
+    [census.utils.core :as ut]
     [census.test.core :as ts]
     [census.wmsAPI.core   :refer [IO-census-wms Icb<-wms-args<<=IO=]]
     [census.geoAPI.core   :refer [IO-pp->census-GeoJSON]]

@@ -5,7 +5,7 @@
     [cljs.pprint :refer [pprint]]
     [clojure.repl :refer [source]]
     [census.test.core :as ts]
-    [census.utils.core :as ut :refer [stats-key $geoKeyMap$]]
+    [census.utils.core :as ut :refer [$geoKeyMap$]]
     [census.geoAPI.core :refer [IO-pp->census-GeoJSON]]
     [census.statsAPI.core :refer [IO-pp->census-stats]]
     [census.geojson.core :refer [geo+config->mkdirp->fsW!]]))

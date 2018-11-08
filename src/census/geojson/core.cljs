@@ -13,7 +13,6 @@
     [census.geojson.filepaths :as geos]
     [census.geojson.filepaths_abv :as geos_abv]))
 
-(def geoKeyMap (ut/read-edn "./src/census/geojson/index.edn"))
 
 ;; NOTE: If you need to increase memory of Node in Shadow... Eval in REPL:
 ;; (shadow.cljs.devtools.api/node-repl {:node-args ["--max-old-space-size=8192"]})
