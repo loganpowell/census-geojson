@@ -43,13 +43,13 @@
                  (prn "No matching clause for the arguments provided. Please check arguments against requirements")))))
 
 
-(<|/go (let [=I= (<|/chan 1)
-             =O= (<|/chan 1 (map ut/throw-err))]
-         (<|/>! =I= ts/args-ok-sts-vals)
-         (IO-census =I= =O=)
-         (prn (<|/<! =O=))
-         (<|/close! =I=)
-         (<|/close! =O=)))
+#_(<|/go (let [=I= (<|/chan 1)
+               =O= (<|/chan 1 (map ut/throw-err))]
+           (<|/>! =I= ts/args-ok-sts-vals)
+           (IO-census =I= =O=)
+           (prn (<|/<! =O=))
+           (<|/close! =I=)
+           (<|/close! =O=)))
 
 (defn census
   [I cb?]

@@ -171,71 +171,71 @@
     answer
     nil))
 
-(comment ; filename->>geopath
-  (filename->>geopath "tb99_d00_shp.zip")
-  ;; => nil
-
-  (filename->>geopath "zt01_d00_shp.zip")
-  ;; => "500k/2000/01/zip-code-tabulation-area.json"
-
-  (filename->>geopath "cb_rd13_48_sldl_500k.zip")
-  ;; => nil
-
-  (filename->>geopath "tb99_d00_shp.zip")
-  ;; => nil
-
-  (filename->>geopath "zt01_d00_shp.zip")
-  ;; => "500k/2000/01/zip-code-tabulation-area.json"
-
-  (filename->>geopath "cm_sa_96_shp.zip")
-  ;; => nil
-
-  (filename->>geopath "cmsa_96_shp.zip")
-  ;; => nil
-
-  (filename->>geopath "cb99_03a_shp.zip")
-  ;; => nil
-
-  (filename->>geopath "cb_2014_us_county_within_cd114_500k.zip")
-  ;; => nil
-
-  (filename->>geopath "cb_rd13_us_cd113_500k.zip")
-  ;; => "500k/2012/congressional-district.json"
-
-  (filename->>geopath "st01_d90_shp.zip")
-  ;; => "500k/1990/01/state.json"
-
-  (filename->>geopath "rg99_d00_shp.zip")
-  ;; => "500k/2000/region.json"
-
-  (filename->>geopath "gz_2010_us_outline_500k.zip")
-  ;; => "500k/2010/nation.json"
-
-  (filename->>geopath "cb_2012_us_uac10_500k.zip")
-  ;; => "500k/2012/urban-area.json"
-
-  (filename->>geopath "gz_2010_us_330_m1_500k.zip")
-  ;; => "500k/2010/combined-statistical-area.json"
-
-  (filename->>geopath "gz_2010_01_970_00_500k.zip")
-  ;; => "500k/2010/01/school-district-_unified'.json"
-
-  (filename->>geopath "cb_2014_us_nation_5m.zip")
-  ;; => "5m/2014/nation.json"
-
-  (filename->>geopath "cb_2014_us_region_500k.zip")
-  ;; => "500k/2014/region.json"
-
-  (filename->>geopath "cb_2014_01_tract_500k.zip")
-  ;; => "500k/2014/01/tract.json"
-
-  (filename->>geopath "cd36_103_shp.zip")
-  ;; => "500k/103/36/congressional-district.json"
-
-  (filename->>geopath "cb_rd13_us_cd113_500k.zip")
-  ;; => "500k/2012/congressional-district.json"
-
-  (filename->>geopath "cb_2013_01_cousub_500k.zip"))
+;(comment ; filename->>geopath
+;  (filename->>geopath "tb99_d00_shp.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "zt01_d00_shp.zip")
+;  ;; => "500k/2000/01/zip-code-tabulation-area.json"
+;
+;  (filename->>geopath "cb_rd13_48_sldl_500k.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "tb99_d00_shp.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "zt01_d00_shp.zip")
+;  ;; => "500k/2000/01/zip-code-tabulation-area.json"
+;
+;  (filename->>geopath "cm_sa_96_shp.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "cmsa_96_shp.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "cb99_03a_shp.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "cb_2014_us_county_within_cd114_500k.zip")
+;  ;; => nil
+;
+;  (filename->>geopath "cb_rd13_us_cd113_500k.zip")
+;  ;; => "500k/2012/congressional-district.json"
+;
+;  (filename->>geopath "st01_d90_shp.zip")
+;  ;; => "500k/1990/01/state.json"
+;
+;  (filename->>geopath "rg99_d00_shp.zip")
+;  ;; => "500k/2000/region.json"
+;
+;  (filename->>geopath "gz_2010_us_outline_500k.zip")
+;  ;; => "500k/2010/nation.json"
+;
+;  (filename->>geopath "cb_2012_us_uac10_500k.zip")
+;  ;; => "500k/2012/urban-area.json"
+;
+;  (filename->>geopath "gz_2010_us_330_m1_500k.zip")
+;  ;; => "500k/2010/combined-statistical-area.json"
+;
+;  (filename->>geopath "gz_2010_01_970_00_500k.zip")
+;  ;; => "500k/2010/01/school-district-_unified'.json"
+;
+;  (filename->>geopath "cb_2014_us_nation_5m.zip")
+;  ;; => "5m/2014/nation.json"
+;
+;  (filename->>geopath "cb_2014_us_region_500k.zip")
+;  ;; => "500k/2014/region.json"
+;
+;  (filename->>geopath "cb_2014_01_tract_500k.zip")
+;  ;; => "500k/2014/01/tract.json"
+;
+;  (filename->>geopath "cd36_103_shp.zip")
+;  ;; => "500k/103/36/congressional-district.json"
+;
+;  (filename->>geopath "cb_rd13_us_cd113_500k.zip")
+;  ;; => "500k/2012/congressional-district.json"
+;
+;  (filename->>geopath "cb_2013_01_cousub_500k.zip"))
   ;; => "500k/2012/congressional-district.json"
 
 

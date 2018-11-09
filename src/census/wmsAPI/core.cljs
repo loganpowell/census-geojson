@@ -41,7 +41,7 @@
                 {:geo          (get-in $g$ [scope lookup :id<-json])
                  :lookup-up-in lookup})))))
 
-(test geoKey->wms-config)
+;(test geoKey->wms-config)
 
 
 (defn lookup-id->match?
@@ -70,7 +70,7 @@
            geo-key
            nil)))
 
-(test geoKey->wms-config)
+;(test geoKey->wms-config)
 
 
 (defn search-id->match?
@@ -88,7 +88,7 @@
       (map #(lookup-id->match? GEO %)
            inverted-geoKeyMap))))
 
-(test search-id->match?)
+;(test search-id->match?)
 
 
 (defn wms-url-builder
@@ -122,7 +122,7 @@
                ["f" "pjson"]
                ["outFields" (s/join "," (map name geo))]]))))))
 
-(test wms-url-builder)
+;(test wms-url-builder)
 
 
 (defn configed-map
@@ -150,7 +150,7 @@
                       {(get (sp/select [sp/ALL sp/ALL] geo-keys) idx)
                        (get wms-vals idx)}))))))
 
-(test configed-map)
+;(test configed-map)
 
 
 (defn try-census-wms
@@ -187,9 +187,9 @@
       true
       false)))
 
-(wms-engage? {:geoHierarchy {:county "01" :tract "*"}})
+;(wms-engage? {:geoHierarchy {:county "01" :tract "*"}})
 
-(test wms-engage?)
+;(test wms-engage?)
 
 
 (defn IO-census-wms

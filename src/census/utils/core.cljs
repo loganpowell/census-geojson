@@ -5,7 +5,6 @@
     [cljs-promises.async :refer [pair-port] :refer-macros [<?]]
     [cuerdas.core :as s]
     [com.rpl.specter :as sp]
-    [cljs.pprint :refer [pprint]]
     [linked.core :as linked]
     [oops.core :as ob]
     [cljs.reader :as r]
@@ -51,7 +50,7 @@
                #(into {} (reverse %))
                m))
 
-(test deep-reverse-map)
+;(test deep-reverse-map)
 
 (defn deep-linked-map
   "

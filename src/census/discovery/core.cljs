@@ -52,9 +52,9 @@
                 (recur (merge-with into args {:geoHierarchy {key- val-}}) (rest geos))
                 (recur (merge-with into args {:predicates {(keyword i) ii}}) (rest geos))))))))
 
-(test digest-one-example-url)
+;(test digest-one-example-url)
 
-(digest-one-example-url test-index-str)
+;(digest-one-example-url test-index-str)
 
 ;  888~-_               d8             ,d88~~\                ,e,             d8
 ;  888   \    /~~~8e  _d88__   /~~~8e  8888     e88~~\ 888-~\  "  888-~88e  _d88__
@@ -76,12 +76,12 @@
                              :db/cardinality :db.cardinality/many}})
 
 
-(geo-pattern-maker geoKeyMap {:vintage "2016",
-                              :values ["H001001" "NAME"],
-                              :sourcePath ["dec" "cd113"],
-                              :geoHierarchy {:state "*"
-                                             :county "*"}
-                              :geoResolution "500k"})
+;(geo-pattern-maker geoKeyMap {:vintage "2016",
+;                              :values ["H001001" "NAME"],
+;                              :sourcePath ["dec" "cd113"],
+;                              :geoHierarchy {:state "*"
+;                                             :county "*"}
+;                              :geoResolution "500k"})
 
 (defn datomize-one-examples-uniques
   [{:keys [sourcePath geoHierarchy] :as args}])
@@ -92,7 +92,7 @@
        (map digest-one-example-url)
        (map ut/js->args)))
 
-(into [] xf-translate-examples di/index-abv)
+;(into [] xf-translate-examples di/index-abv)
 
 (comment
   ; 1) For transducer: https://github.com/loganpowell/census-geojson/issues/12
@@ -195,16 +195,16 @@
   [string]
   ())
 
-(let [[vin+srcPath vals+for+ins] (digest-one-example-url test-index-str)]
-  (let [[& vin+srcPath-parts] (s/split  vin+srcPath "/")
-        [& vals+for+ins-parts] (s/split vals+for+ins "&")
-        [vals & rest] (map #(s/split % #"=|,") vals+for+ins-parts)
-        args {:values vals}
-        geoH {:geoHierarcy {}}
-        pred {:predicates {}}
-        vins {:vintage (first vin+srcPath-parts)}]
-        ;srcP {:sourePath [(rest vin+srcPath-parts)]}]
-    (conj {} args geoH pred vins))) ; srcP)))
+;(let [[vin+srcPath vals+for+ins] (digest-one-example-url test-index-str)]
+;  (let [[& vin+srcPath-parts] (s/split  vin+srcPath "/")
+;        [& vals+for+ins-parts] (s/split vals+for+ins "&")
+;        [vals & rest] (map #(s/split % #"=|,") vals+for+ins-parts)
+;        args {:values vals}
+;        geoH {:geoHierarcy {}}
+;        pred {:predicates {}}
+;        vins {:vintage (first vin+srcPath-parts)}]
+;        ;srcP {:sourePath [(rest vin+srcPath-parts)]}]
+;    (conj {} args geoH pred vins))) ; srcP)))
     ;(-> (map #(if (= "for") (first %))))))
     ;(js/console.log (clj->js args))))
     ;[(vec vin+srcPath-parts)

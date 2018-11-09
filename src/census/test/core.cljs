@@ -36,7 +36,7 @@
                   :values        ["B01001_001E"]})
                   ;:statsKey      stats-key})
 
-(js/console.log (clj->js test-args-3))
+;(js/console.log (clj->js test-args-3))
 (def test-args-4 {:vintage       2010
                   :geoHierarchy  {:state "01" :county "001" :someting-non-existant "*"}
                   :sourcePath    ["acs" "acs5"]
@@ -189,7 +189,7 @@
    :values ["ESTAB"],
    :statsKey "6980d91653a1f78acd456d9187ed28e23ea5d4e3"}
 
-
+(js/console.log (clj->js args-ok-sts-vals))
 
 
 
