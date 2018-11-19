@@ -19,14 +19,14 @@
   takes a pattern of args and deploys one of the various underlying functions
   of this library.
   "
-  ([{:vintage _ :geoHierarchy _ :predicates _ :values _ :statsKey _ :sourcePath _ :geoResolution _}] :stats+geos)
-  ([{:vintage _ :geoHierarchy _               :values _ :statsKey _ :sourcePath _ :geoResolution _}] :stats+geos)
-  ([{:vintage _ :geoHierarchy _ :predicates _ :values _ :statsKey _ :sourcePath _                 }] :stats-only)
-  ([{:vintage _ :geoHierarchy _               :values _ :statsKey _ :sourcePath _                 }] :stats-only)
-  ([{:vintage _ :geoHierarchy _ :predicates _           :statsKey _ :sourcePath _ :geoResolution _}] :no-values)
-  ([{:vintage _ :geoHierarchy _ :predicates _           :statsKey _ :sourcePath _                 }] :no-values)
-  ([{:vintage _ :geoHierarchy _                                                   :geoResolution _}] :geos-only)
-  ([{:vintage _ :geoHierarchy _                                                                   }] :geocodes)
+  ([{:vintage _ :geoHierarchy _ :predicates _ :values _ :sourcePath _ :geoResolution _}] :stats+geos)
+  ([{:vintage _ :geoHierarchy _               :values _ :sourcePath _ :geoResolution _}] :stats+geos)
+  ([{:vintage _ :geoHierarchy _ :predicates _ :values _ :sourcePath _                 }] :stats-only)
+  ([{:vintage _ :geoHierarchy _               :values _ :sourcePath _                 }] :stats-only)
+  ([{:vintage _ :geoHierarchy _ :predicates _           :sourcePath _ :geoResolution _}] :no-values)
+  ([{:vintage _ :geoHierarchy _ :predicates _           :sourcePath _                 }] :no-values)
+  ([{:vintage _ :geoHierarchy _                                       :geoResolution _}] :geos-only)
+  ([{:vintage _ :geoHierarchy _                                                       }] :geocodes)
   ([& anything-else] nil))
 
 (deploy-census-function
